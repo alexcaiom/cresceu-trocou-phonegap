@@ -161,8 +161,42 @@ ContaIndex = {
 		});
 	},
 
+	alertDismissed: function(){
+
+	},
+
 	chamadaAjax: function(){
-		alert(123);
+		
+		navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+
+
+        var url = "http://52.67.117.11:9070"; 
+		var type = "GET"; 
+		var data = "";
+
+		//chamada
+		AjaxService.call(url, type, data)
+		.success(function(response){
+			navigator.notification.alert(
+	            'You are the winner!',  // message
+	            alertDismissed,         // callback
+	            'Game Over',            // title
+	            'Done'                  // buttonName
+	        );
+		})
+		.fail(function(response){
+			navigator.notification.alert(
+	            'You are the winner!',  // message
+	            alertDismissed,         // callback
+	            'Game Over',            // title
+	            'Done'                  // buttonName
+	        );
+		});
 	}
 
 	buscarFaltaPagar: function(){
