@@ -61,6 +61,11 @@ ContaIndex = {
 			window.location = "conta-index.php?busca=" + ano + "-" + mes;
 		});
 
+		$(".chamada-ajax").unbind().click(function(){
+			e.preventDefault();
+			ContaIndex.chamadaAjax();
+		});
+
 		$(".navegar-mes").unbind().click(function(){
 			Geral.aplicarLoading();
 			var navegar = $(this).data("navegar");
@@ -155,6 +160,10 @@ ContaIndex = {
 			window.location = "conta-edit.php?busca="+busca;
 		});
 	},
+
+	chamadaAjax: function(){
+		alert(123);
+	}
 
 	buscarFaltaPagar: function(){
 		var busca = Geral.getParameterByName("busca");
